@@ -4,33 +4,33 @@ using namespace std;
 
 int main()
 {
-    int test_cases;
-    cin >> test_cases;
+    int t; // テストケースの数
+    cin >> t;
 
-    while (test_cases--)
+    while (t--)
     {
         int n;
         cin >> n;
         vector<int> a(n);
 
-        // Read the array values
+        // リストの値を入力
         for (int i = 0; i < n; ++i)
         {
             cin >> a[i];
         }
 
-        // Find the maximum index i such that a[i] > a[i+1]
-        int max_i = -1;
+        // 最大の i を見つける (a[i] > a[i+1])
+        int result = -1;
         for (int i = 0; i < n - 1; ++i)
         {
             if (a[i] > a[i + 1])
             {
-                max_i = i;
+                result = i; // 条件を満たす最大の i を記録
             }
         }
 
-        // Output the result for this test case
-        cout << max_i << endl;
+        // 結果を出力
+        cout << result << endl;
     }
 
     return 0;
