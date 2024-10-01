@@ -1,0 +1,15 @@
+# バーチャル環境フォルダ
+venv/
+.env/
+
+# Pythonの一時ファイル
+*.pyc
+*.pyo
+__pycache__/
+
+# ログファイル
+*.log
+
+# IDE関連の設定ファイル (例：VSCode)
+.vscode/
+.idea/
