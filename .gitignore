@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node.jsの依存関係
 node_modules/
 
@@ -7,10 +8,21 @@ build/
 
 # 環境変数ファイル
 .env
+=======
+# バーチャル環境フォルダ
+venv/
+.env/
+
+# Pythonの一時ファイル
+*.pyc
+*.pyo
+__pycache__/
+>>>>>>> 97c03616e403deb33961d2ea99be4e8df557f3b2
 
 # ログファイル
 *.log
 
+<<<<<<< HEAD
 # エディタの設定ファイル
 .vscode/
 .idea/
@@ -38,3 +50,8 @@ coverage/
 .netlify
 
 # その他のプロジェクト固有の無視ファイル
+=======
+# IDE関連の設定ファイル (例：VSCode)
+.vscode/
+.idea/
+>>>>>>> 97c03616e403deb33961d2ea99be4e8df557f3b2
