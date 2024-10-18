@@ -1,0 +1,40 @@
+# Node.jsの依存関係
+node_modules/
+
+# ビルド出力
+dist/
+build/
+
+# 環境変数ファイル
+.env
+
+# ログファイル
+*.log
+
+# エディタの設定ファイル
+.vscode/
+.idea/
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+
+# キャッシュファイル
+.cache/
+
+# テンポラリファイル
+*.tmp
+*.swp
+
+# パッケージマネージャのロックファイル
+package-lock.json
+yarn.lock
+
+# テストカバレッジレポート
+coverage/
+
+# デプロイメント関連ファイル
+.vercel
+.netlify
+
+# その他のプロジェクト固有の無視ファイル
