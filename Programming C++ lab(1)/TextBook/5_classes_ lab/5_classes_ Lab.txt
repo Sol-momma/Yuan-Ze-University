@@ -1,0 +1,228 @@
+Example 1: Basic Car Class with Display Function:
+
+#include <iostream>
+using namespace std;
+
+class Car {
+public:
+    string brand;
+    string model;
+
+    void display() {
+        cout << brand << " " << model << endl;
+    }
+};
+
+int main() {
+    Car myCar;
+    myCar.brand = "Toyota";
+    myCar.model = "Corolla";
+    myCar.display();
+    return 0;
+}
+
+=============================================================================
+Example 2: Simple Class with Public Members
+
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    int myNum;
+    string myString;
+};
+
+int main() {
+    MyClass myObj;
+    myObj.myNum = 15;
+    myObj.myString = "Some text";
+
+    cout << myObj.myNum << "\n";
+    cout << myObj.myString << endl;
+    return 0;
+}
+
+==================================================================================
+Example 3: Rectangle Class with Private Members and Area Calculation
+
+
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    int length;
+    int width;
+
+public:
+    void setDimensions(int l, int w) {
+        length = l;
+        width = w;
+    }
+
+    int calculateArea() {
+        return length * width;
+    }
+};
+
+int main() {
+    Rectangle rect;
+    rect.setDimensions(5, 10);
+    cout << "Area of rectangle: " << rect.calculateArea() << endl;
+    return 0;
+}
+
+====================================================================================
+Example 4: Student Class with Parameterized Constructor and Setters
+
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) : name(n), age(a) {}
+    
+    void displayInfo() {
+        cout << "Name: " << name << "\nAge: " << age << endl;
+    }
+
+    void setName(string n) {
+        name = n;
+    }
+
+    void setAge(int a) {
+        age = a;
+    }
+};
+
+int main() {
+    Student student1("Alice", 20);
+    student1.displayInfo();
+    student1.setName("Bob");
+    student1.setAge(21);
+    student1.displayInfo();
+    return 0;
+}
+===========================================================================================
+Example 5: Class with Public, Protected, and Private Members
+
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    int publicVar;
+
+protected:
+    int protectedVar;
+
+private:
+    int privateVar;
+};
+
+class MySubClass : public MyClass {
+public:
+    void accessParentVariables() {
+        publicVar = 10;
+        protectedVar = 20;
+        // privateVar = 30; // Error: Can't access private members
+    }
+};
+
+int main() {
+    MyClass obj1;
+    obj1.publicVar = 10;
+    MySubClass obj2;
+    obj2.accessParentVariables();
+    return 0;
+}
+======================================================================================================
+Example 6: Class with Static and Instance Members
+
+#include <iostream>
+using namespace std;
+
+class Box {
+private:
+    int length;
+    static int totalBoxes;
+
+public:
+    Box(int l) : length(l) {
+        totalBoxes++;
+    }
+
+    void display() {
+        cout << "Length of this Box: " << length << endl;
+        cout << "Total Boxes created: " << totalBoxes << endl;
+    }
+
+    static int getTotalBoxes() {
+        return totalBoxes;
+    }
+};
+
+int Box::totalBoxes = 0;
+
+int main() {
+    Box box1(5);
+    Box box2(10);
+
+    box1.display(); // Output: Length of this Box: 5, Total Boxes created: 2
+    box2.display(); // Output: Length of this Box: 10, Total Boxes created: 2
+
+    return 0;
+}
+==========================================================================================================
+Example 7: Constructor and Destructor in a Class
+
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) : name(n), age(a) {
+        cout << "Constructed: " << name << endl;
+    }
+
+    ~Student() {
+        cout << "Destructed: " << name << endl;
+    }
+
+    void displayInfo() {
+        cout << "Name: " << name << "\nAge: " << age << endl;
+    }
+};
+
+int main() {
+    Student student1("Alice", 20);
+    student1.displayInfo();
+
+    {
+        Student student2("Bob", 21);
+        student2.displayInfo();
+    }
+
+    return 0;
+}
+
+
+
+
+==========================================================================================================
+
+Lab assignment: Create a C++ program to perform operations on two geometric shapes: Circle and Rectangle. The program should calculate the area and perimeter of the shapes using classes and objects.
+
+
+
+
+

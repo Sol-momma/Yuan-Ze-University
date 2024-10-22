@@ -1,0 +1,315 @@
+// Example 1
+
+class Car 
+{
+  public:
+    string brand;
+    string model;
+    
+    void display() 
+   {
+      cout << brand << " " << model << endl;
+    }
+};
+
+Car myCar;
+myCar.brand = "Toyota";
+myCar.model = "Corolla";
+myCar.display();
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// Example 2
+
+class MyClass {       // The class
+  public:             // Access specifier
+    int myNum;        // Attribute (int variable)
+    string myString;  // Attribute (string variable)
+};
+
+------------------------------------------------------------------------
+
+class MyClass {       // The class
+  public:             // Access specifier
+    int myNum;        // Attribute (int variable)
+    string myString;  // Attribute (string variable)
+};
+
+int main() {
+  MyClass myObj;  // Create an object of MyClass
+
+  // Access attributes and set values
+  myObj.myNum = 15; 
+  myObj.myString = "Some text";
+
+  // Print attribute values
+  cout << myObj.myNum << "\n";
+  cout << myObj.myString;
+  return 0;
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 2
+
+class Rectangle {
+private:
+  int length;
+  int width;
+public:
+  void setDimensions(int l, int w) {
+    length = l;
+    width = w;
+  }
+  int calculateArea() {
+    return length * width;
+  }
+};
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// Example 3
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) : name(n), age(a) {}
+    void displayInfo() { cout << "Name: " << name << "\nAge: " << age << endl; }
+    void setName(string n) { name = n; }
+    void setAge(int a) { age = a; }
+};
+
+int main() {
+    Student student1("Alice", 20);
+    student1.displayInfo();
+    student1.setName("Bob");
+    student1.setAge(21);
+    student1.displayInfo();
+    return 0;
+}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 4
+
+#include <iostream>
+
+using namespace std;
+
+class MyClass {
+public:
+    int publicVar;      // Accessible from outside the class
+protected:
+    int protectedVar;   // Accessible within the class and its subclasses
+private:
+    int privateVar;     // Accessible only within the class
+};
+
+class MySubClass : public MyClass {
+public:
+    void accessParentVariables() {
+        publicVar = 10;       // Accessible
+        protectedVar = 20;    // Accessible within subclass
+        //privateVar = 30;    // Error: Cannot access private member even in subclass
+    }
+};
+
+int main() {
+    MyClass obj1;
+    obj1.publicVar = 10;       // Accessible
+    //obj1.protectedVar = 20;  // Error: Cannot access protected member from outside the class
+    //obj1.privateVar = 30;    // Error: Cannot access private member from outside the class
+
+    MySubClass obj2;
+    obj2.publicVar = 10;       // Accessible
+    //obj2.protectedVar = 20;  // Error: Cannot access protected member from outside the class
+    //obj2.privateVar = 30;    // Error: Cannot access private member from outside the class
+
+    obj2.accessParentVariables(); // Accessing protected member through subclass function
+
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 5
+
+#include <iostream>
+using namespace std;
+class Base {
+public:
+        int x;
+        static int y;
+};
+int main() {
+        Base b1;
+        b1.x = 10;
+        
+        Base b2;
+         b2.x = 20;
+
+        cout << b1.x << endl;   
+        cout << b2.x << endl;
+        return 0;
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 6
+
+#include <iostream>
+using namespace std;
+class Base {
+public:
+    int x;
+    static int y;
+};
+
+int Base::y;
+
+int main() {
+    Base b1;
+    b1.x = 10;
+    b1.y = 30;
+
+    Base b2;
+    b2.x = 20;
+    b2.y = 40;
+
+    cout << b1.y << endl; // Output: 40
+    cout << b2.y << endl; // Output: 40
+    return 0;
+}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Example 7
+
+#include <iostream>
+
+using namespace std;
+
+class Box {
+private:
+    int length;               // Instance variable: unique for each Box object
+    static int totalBoxes;    // Static variable: shared across all Box objects
+
+public:
+    // Constructor
+    Box(int l) {
+        length = l;           // Set the length for this Box
+        totalBoxes++;         // Increment totalBoxes when a new Box is created
+    }
+
+    // Method to display the length and total boxes
+    void display() {
+        cout << "Length of this Box: " << length << endl;
+        cout << "Total Boxes created: " << totalBoxes << endl;
+    }
+};
+
+// Initialize static variable
+int Box::totalBoxes = 0;
+
+int main() {
+    Box box1(5); // Create first Box with length 5
+    Box box2(10); // Create second Box with length 10
+
+    box1.display(); // Output: Length of this Box: 5, Total Boxes created: 2
+    box2.display(); // Output: Length of this Box: 10, Total Boxes created: 2
+
+    return 0;
+}
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// Example 8
+
+#include <iostream>
+
+using namespace std;
+
+// Defining a simple class
+class MyClass {
+public:
+    int myVar; // Member variable
+    void myMethod() { // Member function
+        cout << "Hello from MyClass!" << endl;
+    }
+};
+
+int main() {
+    // Creating objects of MyClass
+    MyClass obj1, obj2;
+
+    // Accessing member variables and functions of objects
+    obj1.myVar = 10;
+    obj2.myVar = 20;
+    cout << "obj1.myVar: " << obj1.myVar << endl;
+    cout << "obj2.myVar: " << obj2.myVar << endl;
+
+    obj1.myMethod();
+    obj2.myMethod();
+
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 9
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) : name(n), age(a) {
+        cout << "Constructed: " << name << endl;
+    }
+
+    ~Student() {
+        cout << "Destructed: " << name << endl;
+    }
+
+    void displayInfo() {
+        cout << "Name: " << name << "\nAge: " << age << endl;
+    }
+};
+
+int main() {
+    Student student1("Alice", 20);
+    student1.displayInfo();
+
+    {
+        Student student2("Bob", 21);
+        student2.displayInfo();
+    }
+
+    return 0;
+}
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
