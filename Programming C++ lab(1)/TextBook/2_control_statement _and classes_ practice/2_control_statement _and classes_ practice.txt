@@ -1,0 +1,458 @@
+// Example 1
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 10;
+    if (num > 0) {
+        cout << "Positive number" << endl;
+    } else {
+        cout << "Negative number or zero" << endl;
+    }
+    return 0;
+}
+
+Output: "Positive number"
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 2
+#include <iostream>
+using namespace std;
+
+int main() {
+    int monthNumber = 3;
+
+   
+    // Display month name based on month number
+    switch (monthNumber) {
+        case 1:
+            cout << "January";
+            break;
+        case 2:
+            cout << "February";
+            break;
+        case 3:
+            cout << "March";
+            break;
+        case 4:
+            cout << "April";
+            break;
+        case 5:
+            cout << "May";
+            break;
+        case 6:
+            cout << "June";
+            break;
+        case 7:
+            cout << "July";
+            break;
+        case 8:
+            cout << "August";
+            break;
+        case 9:
+            cout << "September";
+            break;
+        case 10:
+            cout << "October";
+            break;
+        case 11:
+            cout << "November";
+            break;
+        case 12:
+            cout << "December";
+            break;
+        default:
+            cout << "Invalid month number. Please enter a number between 1 and 12.";
+            break;
+    }
+
+    return 0;
+}
+
+Output: "March"
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// Example 3
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 5; ++i) {
+        cout << i << endl;
+    }
+    return 0;
+}
+
+Output:
+1
+2
+3
+4
+5
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 4
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 5;
+    int factorial = 1;
+    while (num > 0) {
+        factorial *= num;
+        num--;
+    }
+    cout << "Factorial: " << factorial << endl;
+    return 0;
+}
+
+
+Output: "Factorial: 120"
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// Example 5
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 1;
+    do {
+        cout << num << endl;
+        num++;
+    } while (num <= 5);
+    return 0;
+}
+
+
+Output:
+1
+2
+3
+4
+5
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// Example 6
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    int sum = 0;
+    for (int num : numbers) {
+        sum += num;
+    }
+    cout << "Sum: " << sum << endl;
+    return 0;
+}
+
+
+Output: "Sum: 15"
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 7
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 17;
+    bool is_prime = true;
+    int i = 2;
+    while (i <= num / 2) {
+        if (num % i == 0) {
+            is_prime = false;
+            break;
+        }
+        i++;
+    }
+    if (is_prime) {
+        cout << "Prime" << endl;
+    } else {
+        cout << "Not Prime" << endl;
+    }
+    return 0;
+}
+
+Output: "Prime"
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 8
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 5;
+    int factorial = 1;
+    int i = 1;
+    do {
+        factorial *= i;
+        i++;
+    } while (i <= num);
+    cout << "Factorial: " << factorial << endl;
+    return 0;
+}
+
+Output: "Factorial: 120"
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Exmaple 9
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Example of break statement
+    for(int i = 1; i <= 10; ++i) {
+        if(i == 5) {
+            cout << "Breaking out of loop at i = " << i << endl;
+            break; // Break out of the loop when i equals 5
+        }
+        cout << "i = " << i << endl;
+    }
+    return 0;
+}
+
+output:
+
+i = 1
+i = 2
+i = 3
+i = 4
+Breaking out of loop at i = 5
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Exmaple 10
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Example of continue statement
+    for(int i = 1; i <= 5; ++i) {
+        if(i == 3) {
+            cout << "Skipping iteration at i = " << i << endl;
+            continue; // Skip the rest of the loop body for i = 3
+        }
+        cout << "i = " << i << endl;
+    }
+    return 0;
+}
+
+i = 1
+i = 2
+Skipping iteration at i = 3
+i = 4
+i = 5
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 11
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) : name(n), age(a) {}
+    void displayInfo() { cout << "Name: " << name << "\nAge: " << age << endl; }
+    void setName(string n) { name = n; }
+    void setAge(int a) { age = a; }
+};
+
+int main() {
+    Student student1("Alice", 20);
+    student1.displayInfo();
+    student1.setName("Bob");
+    student1.setAge(21);
+    student1.displayInfo();
+    return 0;
+}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 12
+
+#include <iostream>
+
+using namespace std;
+
+class MyClass {
+public:
+    int publicVar;      // Accessible from outside the class
+protected:
+    int protectedVar;   // Accessible within the class and its subclasses
+private:
+    int privateVar;     // Accessible only within the class
+};
+
+class MySubClass : public MyClass {
+public:
+    void accessParentVariables() {
+        publicVar = 10;       // Accessible
+        protectedVar = 20;    // Accessible within subclass
+        //privateVar = 30;    // Error: Cannot access private member even in subclass
+    }
+};
+
+int main() {
+    MyClass obj1;
+    obj1.publicVar = 10;       // Accessible
+    //obj1.protectedVar = 20;  // Error: Cannot access protected member from outside the class
+    //obj1.privateVar = 30;    // Error: Cannot access private member from outside the class
+
+    MySubClass obj2;
+    obj2.publicVar = 10;       // Accessible
+    //obj2.protectedVar = 20;  // Error: Cannot access protected member from outside the class
+    //obj2.privateVar = 30;    // Error: Cannot access private member from outside the class
+
+    obj2.accessParentVariables(); // Accessing protected member through subclass function
+
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 13
+
+#include <iostream>
+using namespace std;
+class Base {
+public:
+        int x;
+        static int y;
+};
+int main() {
+        Base b1;
+        b1.x = 10;
+        
+        Base b2;
+         b2.x = 20;
+
+        cout << b1.x << endl;   
+        cout << b2.x << endl;
+        return 0;
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 14
+
+#include <iostream>
+using namespace std;
+class Base {
+public:
+    int x;
+    static int y;
+};
+
+int Base::y;
+
+int main() {
+    Base b1;
+    b1.x = 10;
+    b1.y = 30;
+
+    Base b2;
+    b2.x = 20;
+    b2.y = 40;
+
+    cout << b1.y << endl; // Output: 40
+    cout << b2.y << endl; // Output: 40
+    return 0;
+}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Example 15
+
+#include <iostream>
+
+using namespace std;
+
+// Defining a simple class
+class MyClass {
+public:
+    int myVar; // Member variable
+    void myMethod() { // Member function
+        cout << "Hello from MyClass!" << endl;
+    }
+};
+
+int main() {
+    // Creating objects of MyClass
+    MyClass obj1, obj2;
+
+    // Accessing member variables and functions of objects
+    obj1.myVar = 10;
+    obj2.myVar = 20;
+    cout << "obj1.myVar: " << obj1.myVar << endl;
+    cout << "obj2.myVar: " << obj2.myVar << endl;
+
+    obj1.myMethod();
+    obj2.myMethod();
+
+    return 0;
+}
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Example 16
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) : name(n), age(a) {
+        cout << "Constructed: " << name << endl;
+    }
+
+    ~Student() {
+        cout << "Destructed: " << name << endl;
+    }
+
+    void displayInfo() {
+        cout << "Name: " << name << "\nAge: " << age << endl;
+    }
+};
+
+int main() {
+    Student student1("Alice", 20);
+    student1.displayInfo();
+
+    {
+        Student student2("Bob", 21);
+        student2.displayInfo();
+    }
+
+    return 0;
+}
