@@ -1,57 +1,50 @@
-<<<<<<< HEAD
-# Node.jsの依存関係
-node_modules/
+# OSファイル
+.DS_Store
+Thumbs.db
+
+# エディタ/IDE固有のファイル
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # ビルド出力
-dist/
-build/
+/build/
+/dist/
 
-# 環境変数ファイル
-.env
-=======
-# バーチャル環境フォルダ
-venv/
-.env/
-
-# Pythonの一時ファイル
-*.pyc
-*.pyo
-__pycache__/
->>>>>>> 97c03616e403deb33961d2ea99be4e8df557f3b2
+# 依存関係
+/node_modules/
+/vendor/
 
 # ログファイル
 *.log
 
-<<<<<<< HEAD
-# エディタの設定ファイル
-.vscode/
-.idea/
-
-# OS生成ファイル
-.DS_Store
-Thumbs.db
+# 環境設定ファイル
+.env
+.env.local
 
 # キャッシュファイル
-.cache/
+*.cache
+
+# バイナリファイル
+*.exe
+*.dll
+*.so
+*.dylib
 
 # テンポラリファイル
 *.tmp
-*.swp
+*.bak
 
-# パッケージマネージャのロックファイル
-package-lock.json
-yarn.lock
+# その他
+*.pdf
+*.zip
+*.tar.gz
 
-# テストカバレッジレポート
-coverage/
+bin/
+*.exe
 
-# デプロイメント関連ファイル
-.vercel
-.netlify
+!/.nuget/nuget.exe
 
-# その他のプロジェクト固有の無視ファイル
-=======
-# IDE関連の設定ファイル (例：VSCode)
-.vscode/
-.idea/
->>>>>>> 97c03616e403deb33961d2ea99be4e8df557f3b2
+# パッケージフォルダ内の .ts ファイルは要らない
+package/**/*.js

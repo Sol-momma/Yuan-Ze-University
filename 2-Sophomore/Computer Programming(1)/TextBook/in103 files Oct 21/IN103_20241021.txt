@@ -1,0 +1,129 @@
+A data type is like int, double, char, etc.
+
+enum Status { CONTINUE, WON, LOST }; // enumeration data type
+
+This defines a new data type.
+The name of the new data type is Status.
+Status is like int or double.
+A variable of type Status may take one of three possible values, CONTINUE,
+WON or LOST.
+That is why the data type is called an enumeration data type.
+Very often, we start the name of a data type in upper case and that of a
+variable/function in lower case.
+
+In fact, CONTINUE, WON and LOST are 0, 1 and 2, respectively.
+But it is better to write, say, 2 instead of LOST.
+
+enum TrafficLight { GREEN, YELLOW, RED };
+enum Color { PINK, WHITE, GREEN, YELLOW, RED, BLACK, PURPLE, BROWN };
+
+Ooops, YELLOW is ambiguous! So the program with the above code fragment does
+not compile.
+
+enum class TrafficLight { GREEN, YELLOW, RED };
+enum class Color { PINK, WHITE, GREEN, YELLOW, RED, BLACK, PURPLE, BROWN };
+
+int main()
+{
+   TrafficLight a = TrafficLight::YELLOW;
+}
+
+Since C++11, we have enumeration classes, as introduced above.
+TrafficLight::YELLOW means the YELLOW in TrafficLight.
+
+================================================
+
+int x = 1; // global variable
+
+int main()
+{
+   int x = 5; // local variable to main
+
+   cout << x << endl; // 5
+
+   {
+      int x = 7;
+
+      cout << x << endl; // 7
+   } // the variable x initialized to 7 dies out after this right curly brace
+}
+
+The variable x initialized to 1 is not within any function.
+It is called a global variable.
+
+The variable x initialized to 7 lives only within the inner curly braces.
+
+void useLocal()
+{
+   int x = 25; // local variable to useLocal
+
+   cout << x << endl; // 25
+   ++x;
+   cout << x << endl; // 26
+}
+
+This useLocal function demonstrates the usual way we use variables.
+The behavior of the program is simplest with an ordinary local variable.
+
+void useStaticLocal()
+{
+   static int x = 50; // initialized the first time useStaticLocal is called
+
+   cout << x << endl;
+   ++x;
+   cout << x << endl;
+}
+
+The first call to useStaticLocal changes x to 51.
+So the second call will start with x being 51, instead of 50.
+Avoid static local variables unless they are really necessary.
+
+But if you want to implement your version of rand, then you might need
+static local variables.
+
+void useGlobal()
+{
+   cout << x << endl;
+   x *= 10;
+   cout << x << endl;
+}
+
+useGlobal uses the global variable x.
+
+==================================================================
+
+In a long program, we should usually avoid global variables.
+
+A global variable can be accessed by any function in your program.
+
+So if its value becomes unreasonable, every function is a suspect.
+
+Then debugging will be very hard.
+
+================================================================
+
+In a short program, it is sometimes convenient to use global variables so
+that we do not need to pass arguments between functions very often.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
