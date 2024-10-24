@@ -1,0 +1,562 @@
+// ============================================
+// Functions (p. 4)
+
+#include <iostream>
+using namespace std;
+
+int add (int, int);
+int main ()
+{
+  int c = add(10, 20); 
+  cout << c << endl;
+  return 0;
+}
+int add (int num1, int num2)
+
+  return num1 + num2;
+}
+
+
+
+
+
+
+// ============================================
+// Functions (p. 10)
+
+int add (int, int);
+void test (int);
+int main ()
+{
+  int c = add(10, 20); 
+  cout << c << endl;
+  return 0;
+}
+int add (int num1, int num2)
+{
+  test (num1);
+  return num1 + num2;
+}
+void test (int toPrint)
+{
+  cout << toPrint << endl;
+}
+
+
+
+
+// ============================================
+// Functions (p. 11)
+
+int add (int num1, int num2)
+{
+  return num1 + num2;
+}
+
+int main ()
+{
+  // fine!
+  int c = add(10, 20); 
+  cout << c << endl;
+  return 0;
+}
+
+
+
+// ============================================
+// Functions (p. 12)
+
+int add (int num1, int num2)
+{
+  return num1 + num2;
+}
+int main ()
+{
+  double q1 = 10.5;
+  double q2 = 20.7;
+  double c = add(q1, q2); // !
+  cout << c << endl;
+  return 0;
+}
+
+
+// ============================================
+// Functions (p. )
+
+int add (int, int);
+int main ()
+{
+  const int C = 5; 
+  double d = 1.6;
+  cout << add(10, 20) << endl; 
+  cout << add(C, d) << endl; // !
+  cout << add(10 * C, 20) << endl; 
+  return 0;
+}
+
+int add (int num1, int num2)
+{
+  return num1 + num2;
+}
+
+
+// ============================================
+// Functions (p. 14
+
+int test (int);
+
+int main()
+{
+  cout << test(-1); 
+  return 0;
+}	
+
+int test (int a)
+{
+  if (a > 0)
+    return 5;
+}
+
+
+// ============================================
+// Functions (p. 15
+
+int factorial (int n)
+{
+  int ans = 1;
+  for (int a = 1; a <= n; a++)
+    ans *= a; // ans = ans * a;
+  return ans;
+}
+
+
+// ============================================
+// Functions (p. 15)
+
+void factorial (int n)
+{
+  int ans = 1;
+  for (int a = 1; a <= n; a++)
+    ans *= a; // ans = ans * a;
+  cout << ans;
+}
+
+
+// ============================================
+// Functions (p. 17)
+
+int main()
+{
+  int i = 50; // it will be hidden
+  for(int i = 0; i < 20; i++)
+  {   
+    cout << i << " "; // print 0 1 2  K 19
+  }
+  cout << i << endl; // 50
+  return 0;
+} 
+
+
+// ============================================
+// Functions (p. 18)
+
+#include <iostream>
+using namespace std;
+
+int i = 5;
+
+int main()
+{
+  for(; i < 20; i++)
+    cout << i << " "; // ?
+  cout << endl;
+  int i = 2;
+  cout << i << endl; // ?
+  cout << ::i << endl; // ?
+  return 0;
+} 
+
+
+
+// ============================================
+// Functions (p. 15
+
+int test();
+int main()
+{
+  for (int a = 0; a < 10; a++)
+    cout << test() << " "; 
+  return 0; // 1, 1, ..., 1
+} 
+int test()
+{
+  int a = 0;
+  a++;
+  return a;
+}
+
+
+// ============================================
+// Functions (p. 25
+
+int test();
+int main()
+{
+  for (int a = 0; a < 10; a++)
+    cout << test() << " "; 
+  return 0; // 1, 2, ..., 10
+} 
+int test()
+{
+  static int a = 0;
+  a++;
+  return a;
+}
+
+
+
+======================================================
+// Functions (p. 27)
+
+#include <iostream>
+
+using namespace std;
+
+// Function to add two integers
+int add(int a, int b) {
+    return a + b;
+}
+
+// Function to add three integers
+int add(int a, int b, int c) {
+    return a + b + c;
+}
+
+// Function to add two doubles
+double add(double a, double b) {
+    return a + b;
+}
+
+int main() {
+    // Using the overloaded functions
+    cout << "Sum of 5 and 7: " << add(5, 7) << endl;
+    cout << "Sum of 3, 5, and 8: " << add(3, 5, 8) << endl;
+    cout << "Sum of 3.5 and 2.7: " << add(3.5, 2.7) << endl;
+
+    return 0;
+}
+
+
+// ============================================
+
+// Functions (p. 30
+
+#include <iostream>
+
+// Recursive function to calculate factorial
+int factorial(int n) {
+    // Base case: factorial of 0 or 1 is 1
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    // Recursive call: n! = n * (n-1)!
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int n = 5;
+    int result = factorial(n);
+    std::cout << "Factorial of " << n << " is: " << result << std::endl;
+    return 0;
+}
+
+// ============================================
+
+
+// Functions (p. 31
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number = 153;
+    int originalNumber = number;
+    int result = 0;
+
+    while (number != 0) {
+        int digit = number % 10;
+        result += digit * digit * digit;   // result = result + (digit * digit * digit);
+        number /= 10;   // number = number / 10
+    }
+
+    if (result == originalNumber)
+        cout << originalNumber << " is an Armstrong number." << endl;
+    else
+        cout << originalNumber << " is not an Armstrong number." << endl;
+
+    return 0;
+}
+
+comments:
+You initialize number to 153, which is the number you want to check.
+You store the original value of number in originalNumber.
+You initialize result to 0, which will store the sum of the cubes of the digits.
+Using a while loop, you extract each digit of the number, cube it, and add it to result.
+Inside the loop, number is divided by 10 to move to the next digit.
+After the loop, you compare result with originalNumber. If they are equal, you print that the number is an Armstrong number; otherwise, you print that it's not.
+
+
+=======================================================================================================================
+
+						Practice with more exmaples
+
+========================================================================================================================
+
+// Program 1: Function to calculate the sum of two numbers
+
+#include <iostream>
+
+namespace std;
+
+int sum(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int x = 5, y = 3;
+    int result = sum(x, y);
+    cout << "Sum of " << x << " and " << y << " is: " << result << endl;
+    return 0;
+}
+
+===========================================================================
+
+// Program 2: Function to find the maximum of two numbers
+
+#include <iostream>
+
+namespace std;
+
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    int x = 5, y = 3;
+    int maximum = max(x, y);
+    cout << "Maximum of " << x << " and " << y << " is: " << maximum << endl;
+    return 0;
+}
+
+
+===========================================================================
+
+// Program 3: Function to check if a number is even or odd
+
+#include <iostream>
+
+namespace std;
+
+bool isEven(int num) {
+    return (num % 2 == 0);
+}
+
+int main() {
+    int x = 7;
+    if (isEven(x)) {
+        cout << x << " is even." << endl;
+    } else {
+        cout << x << " is odd." << endl;
+    }
+    return 0;
+}
+
+
+===========================================================================
+
+// Program 4: Function to calculate the factorial of a number
+
+#include <iostream>
+
+namespace std;
+
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int num = 5;
+    int fact = factorial(num);
+    cout << "Factorial of " << num << " is: " << fact << endl;
+    return 0;
+}
+
+===========================================================================
+
+// Program 5: Function to print the Fibonacci series
+
+#include <iostream>
+
+namespace std;
+
+void fibonacci(int n) {
+    int a = 0, b = 1, c;
+    cout << "Fibonacci series up to " << n << " terms: ";
+    for (int i = 0; i < n; ++i) {
+        cout << a << " ";
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    cout << endl;
+}
+
+int main() {
+    int terms = 7;
+    fibonacci(terms);
+    return 0;
+}
+
+===========================================================================
+
+// Program 6: Function to reverse a string
+
+#include <iostream>
+#include <string>
+
+namespace std;
+
+string reverseString(string str) {
+    int n = str.length();
+    for (int i = 0; i < n / 2; ++i) {
+        swap(str[i], str[n - i - 1]);
+    }
+    return str;
+}
+
+int main() {
+    string text = "hello";
+    string reversed = reverseString(text);
+    cout << "Original: " << text << endl;
+    cout << "Reversed: " << reversed << endl;
+    return 0;
+}
+ 
+
+
+===================================================================================================================
+
+Using Multiple External Variables
+================================================================
+
+//// File 1: main.cpp
+
+#include <iostream>
+
+using namespace std;  // This allows us to use cout without std::
+
+extern int externalVar;  // Declare the external variable
+
+void printExternalVar();  // Declare the function that will be used
+
+int main() {
+    // Access and print the external variable
+    printExternalVar();
+    return 0;
+}
+
+
+
+////File 2: external.cpp
+
+#include <iostream>
+
+using namespace std;  // This allows us to use cout without std::
+
+int externalVar = 50;  // Define the external variable
+
+void printExternalVar() {
+    // Print the value of the external variable
+    cout << "The value of externalVar is: " << externalVar << endl;
+}
+
+=================================================================
+//File 1: main.cpp
+
+
+#include <iostream>
+
+using namespace std;
+
+// Declare external variables
+extern int num1;
+extern int num2;
+
+int sum();  // Function declaration
+
+int main() {
+    cout << "The sum of num1 and num2 is: " << sum() << endl;  // Call sum function
+    return 0;
+}
+
+
+///File 2: external.cpp
+
+#include <iostream>
+
+using namespace std;
+
+// Define external variables
+int num1 = 10;
+int num2 = 20;
+
+int sum() {
+    return num1 + num2;  // Calculate and return the sum
+}
+
+
+===========================================================
+
+///external array example
+=======================================================================================
+
+// File 1: main.cpp
+
+
+#include <iostream>
+
+using namespace std;
+
+// Declare an external array
+extern int numbers[5];
+
+void printNumbers();  // Declare function
+
+int main() {
+    cout << "Array elements are: " << endl;
+    printNumbers();  // Call the function to print the array
+    return 0;
+}
+
+//File 2: external.cpp
+
+#include <iostream>
+
+using namespace std;
+
+// Define the external array
+int numbers[5] = {1, 2, 3, 4, 5};
+
+void printNumbers() {
+    // Loop through the array and print its elements
+    for (int i = 0; i < 5; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
+}
+
+
