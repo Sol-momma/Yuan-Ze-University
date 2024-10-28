@@ -1,0 +1,218 @@
+
+The greatest common divisor of 84 and 360 is 12.
+
+Homework 2
+Deadline for the 1st version: 10/21
+Deadline for revisions: 11/4
+
+As long as your first version is on time, your homework 2 is considered to
+be on time.
+As long as your final version is correct, your homework 2 is considered to
+be correct.
+
+===============================================
+
+int square( int y ) // parameter, argument
+{
+   return y * y;
+}
+
+int main()
+{
+   cout << square( 'a' ) << endl; // a character is a one-byte integer
+   cout << sizeof( int ) << endl; // how many bytes does an int have
+}
+
+A character is a one-byte integer.
+On my computer, an int takes four bytes, i.e., sizeof( int ) is 4.
+On another computer, an int may take, say, eight bytes.
+Now when we call square( 'a' ), there is an implicit conversion, or implicit
+cast, from char to int, before the argument is really passed to the square
+function.
+
+int square( int y ) // y is local to the function, y is merely a copy of x
+{
+   y = 9;
+
+   return y * y;
+}
+
+int main()
+{
+   int x = 8;
+
+   cout << square( x ) << endl; // 81
+   cout << x << endl; // 8
+}
+
+A parameter/argument is local to the function.
+So changes to y within the square function has nothing to do with whatever
+happens outside of the square function.
+The way we achieve this is very simple: When you pass x to the square
+function, we merely copy x into y so that y is just a copy of x rather than
+x itself.
+
+void findBMI( void )
+{
+   int height;
+   int weight;
+
+   cin >> height >> weight;
+   cout << weight / ( height / 100.0 ) / ( height / 100.0 ) << endl;
+}
+
+The first void says that no return values are needed.
+The second void, which is within the parentheses, says that there are no
+parameters.
+It can be omitted.
+
+void findBMI( void )
+{
+   int height;
+   int weight;
+
+   cin >> height >> weight;
+   cout << weight / ( height / 100.0 ) / ( height / 100.0 ) << endl;
+   return;
+   cout << "You are not gonna see this line" << endl;
+}
+
+In a function with return type void, you may simply return without
+specifying a return value in order to terminate the function.
+
+int square( int y ); // this is called a function prototype
+
+int main()
+{
+   int x = 8;
+
+   cout << square( x ) << endl; // 81
+   cout << x << endl; // 8
+}
+
+int square( int y )
+{
+   y = 9;
+
+   return y * y;
+}
+
+Without the function prototype, we would have to put the square function
+before the main function (so that when the compiler sees the call to the
+square function, it knows what square is).
+But when we write a longer program with, say, 50 functions, it will be very
+cumbersome to take care of the ordering of the functions.
+A popular workaround is to put all the function prototypes very early in the
+cpp file so that we will not need to take care of the ordering later.
+
+Why is it good to separate your program into functions?
+Good programmers feel that the amount of effort you need to
+write/maintain/debug a program of length n is proportional to n square.
+
+Imagine that we need a program with n = 16 units of length.
+To write the code, the effort needed is about 256 (square of 16).
+But if the program is separated into 16 functions, each with 1 unit of
+length, then the effort needed decreases to
+(square of 1) * 16 = 16.
+
+double maximum( double x, double y, double z ) // three parameters
+{
+   double answer = x; // answer is a local variable
+
+   if ( y > answer )
+      answer = y;
+
+   if ( z > answer )
+      answer = z;
+
+   return answer;
+}
+
+Function prototype:
+double maximum( double x, double y, double z ); // without the body
+
+Function signature does not include the return type:
+maximum( double x, double y, double z )
+
+=============================================
+
+Single quotes are used to denote characters, e.g., 'a'.
+
+Double quotes form string literals, e.g., "hi".
+
+A character is a single character, e.g., 'ab' is wrong.
+
+A string literal may consist of one single character, e.g., "a".
+
+But "a" is different from 'a'. The former is a string literal and the latter
+is a character.
+
+String literals end with the null character, written '\0'.
+
+So the string literal "hi" looks like 'h', 'i' and then '\0', in the memory.
+
+When you do cout << "hi" << endl, the program prints the string literal.
+So it prints 'h' and then 'i'.
+Then the program finds that the character following 'i' is the null
+characters.
+So the program knows that the string literal has ended and thus stops
+printing.
+
+To call rand(), include <cstdlib> or, in the C language, <stdlib.h>.
+
+rand() returns a random integer from 0 to RAND_MAX, inclusive, where
+RAND_MAX is defined in <cstdlib>.
+
+The result of rolling a dice is then 1 + rand() % 6.
+
+Assertions are pretty useful.
+Include <cassert> (or, in the C language, <assert.h>) and then you may use
+it to check for conditions that should hold.
+For example:
+
+face = 1 + rand() % 6;
+assert( face >= 1 && face <= 6 );
+
+If we run twice the program that simply calls rand(), we are gonna get the
+same result!
+
+In fact, rand() has a "seed", depending on which the results of subsequent
+calls to rand() are determined.
+
+Now the two runs of the program use the same seed, and so they generate the
+same sequence of "random" numbers.
+
+The usual solution is:
+srand( time( nullptr ) );
+
+Here, srand sets the seed, which determines the results of all subsequent
+calls to rand().
+
+The seed is the current time, although I want to skip the detailed
+explanation of time( nullptr ).
+
+Usually, time( nullptr ) gives us the number of seconds elapsed since
+January 1, 1970, at midnight Greenwich Mean Time.
+But the C++ standards do not force this.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

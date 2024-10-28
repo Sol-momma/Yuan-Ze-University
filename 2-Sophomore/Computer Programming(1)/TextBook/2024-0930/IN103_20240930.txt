@@ -1,0 +1,161 @@
+
+char c; // declare a variable c of type char
+
+A character is a one-byte integer.
+
+For example, 'A' is in fact an integer.
+
+To find the value of 'A', simply write int( 'A' ).
+
+'A' is 65 on this computer.
+
+When the user types the uppercase A and when the program reads the character
+using cin.get(), cin.get() will return 65, but as a normal int rather than
+char.
+
+It is possible that cin.get() determines that the input has ended.
+In this case, cin.get() returns a special integer EOF, standing for "end of
+file".
+
+Very often, EOF is -1, but this depends on the platform.
+
+Now because EOF is an int rather than a char, it sounds reasonable for
+cin.get() to return an int.
+
+No why the name EOF?
+
+In the C language and in UNIX-like systems, the standard input and the
+standard output are files, just like ordinary files on a computer.
+
+The standard input normally means keyboard input.
+The standard output normally means screen input.
+
+int x;
+
+x = 5 has a value, which is the value of x after the assignment is done.
+
+We are now ready to explain the following weird loop in Fig. 4.9:
+
+int grade;
+
+while ( ( grade = cin.get() ) != EOF )
+{
+   switch ( grade )
+   {
+      case 'A':
+         xxxx
+   }
+}
+
+How could the standard input terminate?
+It is not by stopping the typing because cin.get() will wait for you to type
+the next character rather than determining that the standard input has
+ended.
+To end the standard input, type ctrl d on UNIX-like environments or ctrl z
+on Windows.
+
+A common term, "EOF character", is somewhat misleading.
+EOF is not a character.
+It is just that when cin.get() finds that the standard input has ended, it
+will return the special integer EOF.
+
+======================================================
+
+Technically, a = b is called an assignment expression.
+It value is the value of a after the assignment is done.
+
+In a = b = 0, the assignment expression b = 0 has value 0.
+So a will become the value of b = 0.
+In summary, we are setting a and b both to zero.
+
+In general, anything that has a value is called an expression, e.g., 3 + 5.
+
+a = 0 is an expression and has a value.
+a = 0; is called a statement and does not have a value.
+
+============================================================
+
+int main()
+{
+   int x;
+   int years[ 8000 ]; // declare an array with 8000 elements, each being an int
+
+   for ( int i = 0; i < 8000; ++i )
+      years[ i ] = 2006;
+}
+
+// years[ 0 ]
+// years[ 1 ]
+// years[ 2 ]
+// ...
+// years[ 7999 ]
+
+We declared an array whose name is years and which contains 8000 elements,
+each being an int.
+
+The elements of the array are years[ 0 ], years[ 1 ], ..., years[ 7999 ].
+
+Yes, there are 8000 elements, although the final index (subscript) is 7999.
+
+Just like declaring an int variable x, years is also a variable. But this
+variable is an array.
+
+Array elements are guaranteed to be contiguous in the memory.
+
+==============================================================
+
+int main()
+{
+   int x;
+   int years[ 8000 ]; // declare an array with 8000 elements, each being an int
+
+   for ( int i = 0; i < 8000; ++i )
+      years[ i ] = 2006;
+
+   years[ 8000 ] = 2006; // Ooops!
+}
+
+This is a common error---The array does not even have years[ 8000 ] as its
+element!
+So we are accessing the array out of bounds.
+This will corrupt data near the array.
+But because the corrupted thing may or may not be important, it is possible
+that no observable problems occur.
+The most troublesome bugs are those that are hard even to observe.
+
+=================================================================
+
+int main()
+{
+   int n;
+
+   cin >> n;
+
+   int arr[ n ]; // variable-length array (that we should avoid)
+
+   int numbers[ 100 ]; // good, at least not a variable-length array
+   const int NUM_HOLIDAYS = 100;
+   int counts[ NUM_HOLIDAYS ]; // even better
+}
+
+Two reasons to avoid variable-length arrays:
+
+(1) Some C/C++ standards in fact forbid to use them.
+(2) If the array fails to be created, it fails silently.
+
+If you really need an array whose size can be known only after the program
+runs, use new, malloc or calloc, as we will learn in the future.
+
+For now, just use a "sufficiently large const integer" for the number of
+elements of an array.
+
+
+
+
+
+
+
+
+
+
+

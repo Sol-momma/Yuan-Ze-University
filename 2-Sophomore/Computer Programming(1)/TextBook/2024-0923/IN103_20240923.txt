@@ -1,0 +1,162 @@
+
+Homework 1
+
+Use the standard input for inputs and standard output for outputs.
+Typically, the standard input comes from your keyboard, and the standard
+output goes to the screen.
+
+So just use cin to read and cout to write.
+
+Deadline for the 1st version: 9/30
+Deadline for revisions: 10/14
+
+You may revise for an unlimited number of times.
+
+As long as your first version is on time, your homework 1 is on time.
+As long as your final version is correct, your homework 1 is correct.
+
+Do not submit essentially empty programs (like Hello, World!) to the portal.
+They do not count.
+
+Some people used to interpret the existence of a deadline for revisions as
+saying that it suffices to submit a program only on the deadline of
+revisions---This is wrong.
+
+=============================================================
+
+for loops
+
+int main()
+{
+   int i;
+
+   for ( i = 0; i < 3; i++ )
+      cout << "Hi\n";
+}
+
+int main()
+{
+   int i;
+
+   for ( i = 0; i < 3; ++i )
+      cout << "Hi\n";
+}
+
+for ( initialization; conditionToRunTheNextIteration; updating )
+
+===============================================
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   for ( int i = 0; i < 3; i++ )
+      cout << "Hi\n";
+}
+
+This time, the variable i can be seen from only within the for loop.
+We say that the scope of i is within the for loop.
+
+int main()
+{
+   for ( int i = 0; i < 3; i++ )
+      cout << "Hi\n";
+
+   i = 9; // compilation error
+}
+
+==========================================================
+
+Environment: You may try any of Visual Studio, Cygwin, MinGW, Borland C++,
+Dev C++, g++ or any other environment that gives you a C++ compiler.
+
+============================================================
+
+#include <iostream>
+#include <cmath> // #include <math.h>
+#include <cstdlib> #include <stdlib.h>
+
+<iostream> means input output stream
+
+Back in the C language, if we want to use pow, we include <math.h>, where h
+stands for header.
+
+C is a predecessor of C++. Every standard header of C can be used in C++.
+But people usually change <math.h> to <cmath>, <stdlib.h> to <cstdlib>, etc.
+
+=============================================
+
+Why "double"?
+
+Oh, it is a double precision floating-point number.
+
+=================================================
+
+do-while loops
+
+==================================================
+
+   char grade; // character type, just like int or double
+   int aCount = 0;
+   int bCount = 0;
+   bool flag = true; // declares a variable of type bool and with flag
+   // boolean
+
+Above, we see two more data types, just like int or double.
+char means character.
+bool means boolean (true or false).
+
+To write down a single character, use single quotes.
+For example, 'A' or 'a'.
+Do not write 'AB' because AB consists of two characters.
+
+   while ( flag )
+   {
+      cin >> grade;
+
+      switch ( grade )
+      {
+         case 'A':
+         case 'a':
+            ++aCount;
+            break;
+         case 'B':
+         case 'b':
+            ++bCount;
+            break;
+         case 'Q':
+         case 'q':
+            flag = false;
+            break;
+         default:
+            cout << "Please enter A or B, or Q to quit" << endl;
+            break;
+      }
+   }
+
+   cout << "Number of A\'s is " << aCount << endl;
+   cout << "Number of B\'s is " << bCount << endl;
+
+The most common error is forgetting to break (so that the program will
+directly proceed on to the next case).
+
+It is recommended to provide a default case always, even if the program
+shall never reach it.
+For example, you may output an error message in the default case if the
+program shall not go there.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

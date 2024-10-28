@@ -1,0 +1,232 @@
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   cout << "Hello" << endl;
+   return 0;
+}
+
+Above, <iostream> is called a header file.
+There are some things (like cout) that are defined by others and that we want
+to use.
+To use them, include the header files that define them.
+
+The program begins by running "the main function".
+
+return 0 is called a return statement. It terminates the main function.
+
+The value 0 indicates normal execution.
+
+The value 0 is called the return value.
+
+Last week, we did not write the return statement.
+This is because when the main function terminates without reaching a return
+statement, it is seen as returning 0.
+
+In the future, we are gonna see other functions rather the main function.
+In such functions, return statements should not be omitted.
+
+=============================================================
+
+Dangling-else problem
+
+   if ( x > 5 )
+      if ( y > 5 )
+         cout << "x and y are > 5" << endl;
+   else
+      cout << "x is <= 5" << endl;
+
+What is wrong with this program?
+
+Two interpretations:
+
+   if ( x > 5 )
+   {
+      if ( y > 5 )
+         cout << "x and y are > 5" << endl;
+   }
+   else
+      cout << "x is <= 5" << endl;
+
+or
+
+   if ( x > 5 )
+   {
+      if ( y > 5 )
+         cout << "x and y are > 5" << endl;
+   else
+      cout << "x is <= 5" << endl;
+   }
+
+==============================================
+
+General rule: Without curly braces, the else keyword is associated with its
+closest if keyword.
+
+   if ( x > 5 )
+      if ( y > 5 )
+         cout << "x and y are > 5" << endl;
+   else
+      cout << "x is <= 5" << endl;
+
+=================================================================================
+
+// p. 113 of the textbook, demonstrating while loops
+
+int main()
+{
+   int product = 3;
+
+   while ( product <= 100 )
+      product = 3 * product; // body of the while loop
+
+   cout << product << endl; // 243
+}
+
+==============================================================
+
+You may use a compound statement as the body of the while loop:
+
+   while ( product <= 100 )
+   {
+      product = 3 * product;
+      x = x * 2;
+   }
+
+The style I learned when I was a freshman:
+
+  while (product <= 100) {
+     product = 3 * product;
+     x = x * 2;
+  }
+
+==================================================
+
+int main()
+{
+   int total = 0;
+   int gradeCounter = 1;
+   int grade;
+   int average;
+
+   while ( gradeCounter <= 3 )
+   {
+      cout << "Enter grade: ";
+      cin >> grade;
+      total = total + grade;
+      gradeCounter = gradeCounter + 1;
+   }
+
+   average = total / 3;
+   cout << average << endl;
+}
+
+The while loop runs for three iterations.
+
+=========================
+
+   int total = 0;
+   int gradeCounter = 1;
+   int grade;
+
+   while ( gradeCounter <= 3 )
+   {
+      cout << "Enter grade: ";
+      cin >> grade;
+      total = total + grade;
+      gradeCounter = gradeCounter + 1;
+   }
+
+   cout << total / 3.0 << endl; // 3.0 is a floating-point number
+
+The numerator is of type int.
+The denominator is a floating-point number.
+
+The numerator will be transformed into a floating-point number; this is
+called casting.
+Then we perform division of a floating-point number by a floating-point
+number.
+
+========================================
+
+int main()
+{
+   int total; // forget to initialize to 0
+   int gradeCounter = 1;
+   int grade;
+
+   while ( gradeCounter <= 3 )
+   {
+      cout << "Enter grade: ";
+      cin >> grade;
+      total = total + grade;
+      gradeCounter = gradeCounter + 1;
+   }
+
+   cout << total / 3.0 << endl; // 3.0 is a floating-point number
+}
+
+Here, we forgot to initialize total.
+An uninitialized variable contains a "garbage value", which can be any
+value.
+
+===========================================================
+
+Sentinel-controlled loop:
+
+   cout << "Enter grade or -1 to quit: ";
+   cin >> grade;
+
+   while ( grade != -1 )
+   {
+      total = total + grade;
+      gradeCounter = gradeCounter + 1;
+
+      cout << "Enter grade or -1 to quit: ";
+      cin >> grade;
+   }
+
+Here, -1 is the sentinel.
+
+      int total = 0;
+      
+      xxxxx
+      
+      average = static_cast< double >( total ) / gradeCounter;
+      cout << setprecision( 3 ) << fixed << average << endl;
+
+After the casting, total is still of type int.
+We just have another temporary storage that holds something of type double.
+
+========================================================
+
+total += grade; // means total = total + grade;
+++gradeCounter; // means gradeCounter = gradeCounter + 1
+
+===================================================
+
+   int c = 5;
+
+   cout << c << endl; // 5
+   cout << c++ << endl; // 5, postincrementing c
+   cout << c << endl; // 6
+   cout << ++c << endl; // 7, preincrementing c, c = c + 1
+   cout << c << endl; // 7
+
+Both preincrementing c and postincrementing c increment c by one.
+The only difference is that the value of postincrementing c is the original
+value of c (prior to the post increment).
+
+
+
+
+
+
+
+
+
+
+
+

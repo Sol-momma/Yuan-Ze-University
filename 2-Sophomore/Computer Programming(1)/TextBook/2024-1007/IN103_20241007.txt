@@ -1,0 +1,174 @@
+
+Each submission of homework 1 will be tested within three days.
+If you receive neither a score nor an email asking you to revise after more
+than three days, please kindly tell me.
+Same for all future homework assignments
+
+The continue statement skips the rest of the current iteration.
+
+If you want a loop to run for 100 iterations, you may do
+
+for ( int i = 0; i < 100; ++i )
+{
+   xxxx
+}
+
+================================
+
+   if ( x ) // nonzero valus are treated as being true and zero false
+   {
+      cout << "x is not zero" << endl;
+   }
+
+   int z;
+
+   while ( cin >> z ) // true if the reading is successfuly and false otherwise
+   {
+      cout << "You typed " << z << endl;
+   }
+
+===================================
+
+   if ( index < 5 && numbers[ index ] <= 4 ) // short-circuit evaluation
+   {
+      cout << numbers[ index ] << endl;
+   }
+
+   if ( numbers[ 0 ] < 8 || cin >> index ) // short-circuit evaluation
+   {
+      cout << "Hi" << endl;
+   }
+
+The following is wrong:
+
+   if ( numbers[ index ] <= 4 && index < 5 ) // short-circuit evaluation
+   {
+      cout << numbers[ index ] << endl;
+   }
+
+===============================================
+
+   if ( yearOfBirth = 2006 ) // a common kind of error
+   {
+      cout << "Bingo!" << endl;
+   }
+
+The problem is that the assignment expression yearOfBirth = 2006 has a
+value.
+Its value is the value of its left-hand side after the assignment is done.
+So the value is 2006, which is then treated as being true in C++.
+
+In C++, anything that has a value is called an expression, such as
+yearOfBirth = 2006, 3, 6 + 7 and so on.
+
+=======================================================
+
+There is a celebrated paper, titled "Go To Statement Considered Harmful",
+discouraging the use of goto statements.
+
+With goto statements, it will usually be hard to know where we came from to
+reach the current line or where we will go to.
+This makes debugging hard.
+Also, goto statements make it hard for the compiler to understand and thus
+optimize the code (to optimize the code means to make it run faster).
+
+There is basically only one situation where some people will suggest using
+goto: To jump out of deeply nested loops.
+
+======================================================
+
+Ideally, any block of code should have a single entry and a single exit,
+such as in
+
+while ( cin >> x )
+{
+   xxx
+}
+
+========================================================
+
+// introducing functions
+// name: maximum
+// Parameters may be thought of as the inputs to the function.
+// They are also called arguments.
+// The function will give you an answer, which is the maximum among a, b
+// and c.
+// Such an answer is "returned" by the function.
+// The answer is formally called the return value.
+// It has a type, which is int.
+// The return type precedes the function name.
+
+int maximum( int a, int b, int c )
+{
+   int answer = a;
+
+   if ( b > answer )
+      answer = b;
+
+   if ( c > answer )
+      answer = c;
+
+   return answer;
+}
+
+When you do
+
+cout << maximum( 8, 9, 3 );
+
+in the main function, you are calling the maximum function.
+The value of maximum( 8, 9, 3 ) will be the value returned by the call.
+
+Caller: The main function
+Callee: The maximum function
+
+The return statement terminates the function.
+So if you do cout << "Hi" after the return statement, you will not see Hi.
+
+The main function has a return type of int.
+Typically, a return value of zero by the main function means normally execution.
+Any other value usually means that something is wrong.
+But exactly what return value means what depends on the programmer.
+
+If the main function terminates without returning anything, then it returns
+zero by default.
+Any other function which, say, has a return type of int, should terminate by
+returning an integer.
+It is a very common error to omit the return statement in such a case.
+
+For example, if I omit the return statement in the maximum function, then
+the return value will be undefined.
+If the main function does cout << maximum( 1, 2, 4 ), then the program's
+behavior will be undefined.
+
+The return statement in the main function terminates the program.
+But the return statement in the maximum function terminates the maximum
+function only.
+Inconsistent?
+
+Correct: The return statement in the main function terminates the main
+function. When the main function terminates, the program finishes.
+
+=========================================
+
+Functions enhance the reusability of code.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
