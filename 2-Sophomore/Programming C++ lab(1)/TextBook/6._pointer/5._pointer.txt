@@ -1,0 +1,450 @@
+// ============================================
+//  Pointers (p. 6)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int* p1 = 0;
+    cout << "Size of p1: " << sizeof(p1) << " bytes" << endl; // Size of p1: 8 bytes
+
+    double* p2 = 0;
+    cout << "Size of p2: " << sizeof(p2) << " bytes" << endl; // Size of p2: 8 bytes
+
+    return 0;
+}
+
+
+// ============================================
+// Pointers (p. 10)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10;
+    int* p1 = &a;
+
+    cout << "value of a = " << a << endl; // value of a = 10
+    cout << "value of p1 = " << p1 << endl; // value of p1 = <address of a>
+    cout << "address of a = " << &a << endl; // address of a = <address of a>
+    cout << "address of p1 = " << &p1 << endl; // address of p1 = <address of p1>
+    cout << "value of the variable pointed by p1 = " << *p1 << endl; // value of the variable pointed by p1 = 10
+
+    return 0;
+}
+
+==================================================================================================
+
+//page 10
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // declare variables
+    int var1 = 3;
+    int var2 = 24;
+    int var3 = 17;
+
+    // print address of var1
+    cout << "Address of var1: "<< &var1 << endl;
+
+    // print address of var2
+    cout << "Address of var2: " << &var2 << endl;
+
+    // print address of var3
+    cout << "Address of var3: " << &var3 << endl;
+}
+
+=========================================================================================
+//page 10
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    char myChar = 'A'; // Declaring a character variable
+    char *charPtr;     // Declaring a pointer to a character
+
+    charPtr = &myChar; // Assigning the address of myChar to charPtr
+
+    cout << "Value of myChar: " << myChar << endl;
+    cout << "Value of charPtr: " << *charPtr << endl; // Dereferencing charPtr to access the value
+
+    return 0;
+}
+
+===============================================================================================================
+
+//page 11
+
+#include <iostream>
+using namespace std;
+int main() {
+	int  *ip = NULL;  
+	cout << "Value of ip is: " << ip;
+	return 0;
+}
+
+=========================================================='
+//p-12
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int arr[] = {10, 20, 30};
+    int* ptr = arr;
+    
+    // Output the first element of the array using array notation and pointer dereferencing
+    cout << arr[0] << "\n"; // Outputs 10
+    cout << *(ptr + 0) << "\n"; // Outputs 10
+
+    return 0;
+}
+
+
+
+===============================================
+//: Introduction to Pointers
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 10;
+    int* ptr = &x; // Pointer stores the address of x
+
+    cout << "Value of x: " << x << endl;
+    cout << "Address of x: " << ptr << endl;
+
+    return 0;
+}
+
+===============================================================
+
+Declaring and Initializing Pointers
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int y = 20;
+    int* p = &y;
+
+    cout << "Pointer p points to value: " << *p << endl; // Dereferencing to get the value
+    return 0;
+}
+================================================================================
+Dereferencing Pointers
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int z = 15;
+    int* ptr = &z;
+
+    cout << "Value of z via pointer: " << *ptr << endl;
+    return 0;
+}
+====================================================================
+Pointer Arithmetic
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {10, 20, 30};
+    int* ptr = arr; // Points to first element of arr
+
+    cout << "First element: " << *ptr << endl;
+    cout << "Second element: " << *(ptr + 1) << endl; // Pointer arithmetic
+    return 0;
+}
+
+======================================================================
+
+Pointers with Arrays
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[3] = {1, 2, 3};
+    int* ptr = arr;
+
+    for (int i = 0; i < 3; i++) {
+        cout << *(ptr + i) << " "; // Accessing array elements using pointer
+    }
+    return 0;
+}
+
+
+=================================================================
+Pointers as Function Parameters
+
+#include <iostream>
+using namespace std;
+
+void increment(int* p) {
+    (*p)++; // Dereference and increment the value
+}
+
+int main() {
+    int val = 5;
+    increment(&val); // Pass the address of val
+    cout << "Value after increment: " << val << endl; // Outputs 6
+    return 0;
+}
+
+=======================================================
+
+// Passing by reference without pointers
+
+
+#include<iostream>
+using namespace std;
+
+int sum(int a, int b){
+    int c = a + b;
+    return c;
+}
+
+// This will not swap a and b
+void swap(int a, int b){ //temp a b
+    int temp = a;        //4   4  5   
+    a = b;               //4   5  5
+    b = temp;            //4   5  4 
+}
+
+// Call by reference using pointers
+void swapPointer(int* a, int* b){ //temp a b
+    int temp = *a;          //4   4  5   
+    *a = *b;               //4   5  5
+    *b = temp;            //4   5  4 
+}
+
+// Call by reference using C++ reference Variables
+// int & 
+void swapReferenceVar(int &a, int &b){ //temp a b
+    int temp = a;          //4   4  5   
+    a = b;               //4   5  5
+    b = temp;            //4   5  4 
+    // return a;
+}
+
+int main(){
+    int x =4, y=5;
+    // cout<<"The sum of 4 and 5 is "<<sum(a, b);
+    cout<<"The value of x is "<<x<<" and the value of y is "<<y<<endl;
+    // swap(x, y); // This will not swap a and b
+    //swapPointer(&x, &y); //This will swap a and b using pointer reference
+    //swapReferenceVar(x, y); //This will swap a and b using reference variables
+    cout<<"The value of x is "<<x<<" and the value of y is "<<y<<endl; 
+    return 0;
+}
+
+==================================================================================================
+
+// Passing by reference using pointers
+
+#include <iostream>
+using namespace std;
+
+// function definition to swap values
+void swap(int &n1, int &n2) {
+    int temp;
+    temp = n1;
+    n1 = n2;
+    n2 = temp;
+}
+
+int main() {
+
+    // initialize variables
+    int a = 1, b = 2;
+
+    cout << "Before swapping" << endl;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+
+    // call function to swap numbers
+    swap(a, b);
+
+    cout << "\nAfter swapping" << endl;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+
+    return 0;
+}
+===================================================================================================
+//Pass by value:
+
+#include <iostream>
+using namespace std;
+
+// Function to increment a value by 1 (passed by value)
+void incrementByValue(int num) {
+    num++; // Increment the value by 1
+    cout << "Inside function (by value): " << num << endl;
+}
+
+int main() {
+    int num = 5;
+    cout << "Before function call (by value): " << num << endl;
+    incrementByValue(num); // Passing by value
+    cout << "After function call (by value): " << num << endl;
+    return 0;
+}
+
+===================================================================================================
+//Passing by Reference:
+
+
+#include <iostream>
+using namespace std;
+
+// Function to increment a value by 1 (passed by reference)
+void incrementByReference(int &num) {
+    num++; // Increment the value by 1
+    cout << "Inside function (by reference): " << num << endl;
+}
+
+int main() {
+    int num = 5;
+    cout << "Before function call (by reference): " << num << endl;
+    incrementByReference(num); // Passing by reference
+    cout << "After function call (by reference): " << num << endl;
+    return 0;
+}
+
+===================================================================================================
+//Passing Pointer by Value:
+
+#include <iostream>
+using namespace std;
+
+// Function to increment the value pointed to by a pointer
+void incrementByValue(int *ptr) {
+    (*ptr)++;
+}
+
+int main() {
+    int num = 5;
+    int *ptr = &num;
+
+    cout << "Before increment: " << *ptr << endl;
+    incrementByValue(ptr);
+    cout << "After increment: " << *ptr << endl;
+
+    return 0;
+}
+
+===================================================================================================
+//Swapping Values using Pointers by Value:
+
+#include <iostream>
+using namespace std;
+
+// Function to swap the values pointed to by two pointers
+void swapByValue(int *ptr1, int *ptr2) {
+    int temp = *ptr1;
+    *ptr1 = *ptr2;
+    *ptr2 = temp;
+}
+
+int main() {
+    int num1 = 5, num2 = 10;
+    int *ptr1 = &num1, *ptr2 = &num2;
+
+    cout << "Before swapping: " << *ptr1 << " " << *ptr2 << endl;
+    swapByValue(ptr1, ptr2);
+    cout << "After swapping: " << *ptr1 << " " << *ptr2 << endl;
+
+    return 0;
+}
+
+
+===================================================================================================
+//Pointer to object 
+
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    void display() 
+    {
+        cout << "Hello from MyClass!" << endl;
+    }
+};
+
+int main() {
+    MyClass obj;
+    MyClass* ptr = &obj;
+    ptr->display();
+
+    return 0;
+}
+
+===================================================================================================
+//Pointer to class 
+
+#include <iostream>
+
+using namespace std;
+
+class Base {
+public:
+    virtual void display() {
+        cout << "Hello from Base class!" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void display() override {
+        cout << "Hello from Derived class!" << endl;
+    }
+};
+
+int main() {
+    Base* ptr;
+    Derived obj;
+    ptr = &obj;
+    ptr->display();
+
+    return 0;
+}
+
+===================================================================================================
+//Pointer to function 
+
+#include <iostream>
+
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int main() {
+    int (*ptr)(int, int);
+    ptr = &add;
+    cout << "Addition: " << ptr(5, 3) << endl;
+    ptr = &subtract;
+    cout << "Subtraction: " << ptr(5, 3) << endl;
+
+    return 0;
+}
+
+
