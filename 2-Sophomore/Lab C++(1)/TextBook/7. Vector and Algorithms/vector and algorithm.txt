@@ -1,0 +1,154 @@
+Example 1: Basic Vector Operations
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // Initialize a vector with some values
+    vector<int> numbers = {10, 20, 30, 40, 50};
+
+    // Add an element at the end
+    numbers.push_back(60);
+
+    // Remove the last element
+    numbers.pop_back();
+
+    // Access elements using index
+    cout << "First element: " << numbers[0] << endl;
+    cout << "Size of vector: " << numbers.size() << endl;
+
+    // Iterate through the vector
+    cout << "Elements in vector: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+=================================================
+Example 2: Using sort from <algorithm>
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> numbers = {5, 3, 8, 1, 2};
+
+    // Sort the vector in ascending order
+    sort(numbers.begin(), numbers.end());
+
+    cout << "Sorted elements: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+=====================================================
+
+Example 3: Using reverse from <algorithm>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+
+    // Reverse the elements of the vector
+    reverse(numbers.begin(), numbers.end());
+
+    cout << "Reversed elements: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+===============================================================
+Example 4: Using find from <algorithm>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> numbers = {10, 20, 30, 40, 50};
+
+    // Find an element in the vector
+    auto it = find(numbers.begin(), numbers.end(), 30);
+    if (it != numbers.end()) {
+        cout << "Found element: " << *it << endl;
+    } else {
+        cout << "Element not found" << endl;
+    }
+
+    return 0;
+}
+
+=============================================================
+
+Example 5: Using count from <algorithm>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> numbers = {1, 2, 2, 3, 4, 2, 5};
+
+    // Count occurrences of the number 2
+    int countOfTwos = count(numbers.begin(), numbers.end(), 2);
+
+    cout << "Number of occurrences of 2: " << countOfTwos << endl;
+
+    return 0;
+}
+
+==========================================================
+
+Example 6: Using unique and erase to Remove Duplicates
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> numbers = {1, 2, 2, 3, 4, 4, 5};
+
+    // Sort the vector first to prepare for unique operation
+    sort(numbers.begin(), numbers.end());
+
+    // Remove duplicates
+    auto last = unique(numbers.begin(), numbers.end());
+    numbers.erase(last, numbers.end());
+
+    cout << "Unique elements: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
