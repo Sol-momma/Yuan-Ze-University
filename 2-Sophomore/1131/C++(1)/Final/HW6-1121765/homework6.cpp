@@ -1,48 +1,69 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
+#include <cctype>  // For std::isspace
 using namespace std;
 
-// LCSを計算する関数
+// Function to calculate the Longest Common Subsequence
 int longestCommonSubsequence(const string& str1, const string& str2) {
     int m = str1.size();
     int n = str2.size();
-
-    // DPテーブルの初期化
     vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
 
-    // DPテーブルの計算
     for (int i = 1; i <= m; i++) {
         for (int j = 1; j <= n; j++) {
-            if (str1[i - 1] == str2[j - 1]) { 
+            if (str1[i - 1] == str2[j - 1]) {
                 dp[i][j] = dp[i - 1][j - 1] + 1;
             } else {
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
             }
         }
     }
-
     return dp[m][n];
 }
 
-int main() {
-    string input;
-    vector<pair<string, string>> testCases;
+// Function to skip whitespace characters
+void skipWhitespace(istream& in) {
+    while (in.good() && std::isspace(in.peek())) {
+        in.ignore();
+    }
+}
 
-    // 入力全体を読み取る
-    while (getline(cin, input)) {
-        istringstream iss(input);
-        string str1, str2;
-
-        while (iss >> str1 >> str2) {
-            testCases.emplace_back(str1, str2);
+// Function to read a string (ignoring whitespace)
+string readString(istream& in) {
+    string result;
+    char c;
+    
+    // Skip initial whitespace
+    skipWhitespace(in);
+    
+    // Read characters one by one
+    while (in.get(c)) {
+        if (!std::isspace(c)) {
+            result += c;
+        } else {
+            // Break when whitespace is found
+            break;
         }
     }
+    return result;
+}
 
-    // 各テストケースに対して結果を計算
-    for (const auto& testCase : testCases) {
-        int result = longestCommonSubsequence(testCase.first, testCase.second);
+int main() {
+    string str1, str2;
+    
+    // Process until EOF
+    while (true) {
+        // Skip whitespace and read first string
+        str1 = readString(cin);
+        if (str1.empty() && cin.eof()) break;
+        
+        // Skip whitespace and read second string
+        str2 = readString(cin);
+        if (str2.empty() && cin.eof()) break;
+        
+        // Calculate and output LCS result
+        int result = longestCommonSubsequence(str1, str2);
         cout << result << endl;
     }
 
