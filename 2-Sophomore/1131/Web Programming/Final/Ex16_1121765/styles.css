@@ -1,0 +1,117 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f1f3f4; /* 背景色(明るいグレー) */
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+}
+
+/* 共通ボックススタイル(直接使用するため@extendを使わずに統合) */
+.box {
+    color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+/* 緑色ボックス */
+.green-box {
+    background: #8DC63F;
+    color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    max-width: 95%;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ティールセクション(通常時も横幅を統一) */
+.teal-section {
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 20px auto;
+    height: auto;
+    overflow: hidden;
+}
+
+/* ティールボックス */
+.teal-box {
+    background: #00AAAA;
+    color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    max-height: 100vh;
+    overflow: auto;
+}
+
+/* グレーセクション(小画面時は2列×2段) */
+.gray-section {
+    max-width: 95%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.gray-box {
+    background: #D3D3D3;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    /* 小画面時は2列になるように幅50%計算 */
+    flex: 1 1 calc(50% - 10px);
+    box-sizing: border-box;
+}
+
+/* 幅480px以上でレイアウト変更 */
+@media (min-width: 480px) {
+    .teal-section {
+        max-width: 95%;
+        margin: 20px auto;
+        flex-direction: row; /* 横並びに変更 */
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .teal-box {
+        flex: none;
+        width: 100%; /* 幅を100%に設定 */
+        margin: 10px 0; /* 上下にマージンを設定 */
+    }
+
+    .gray-section {
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .gray-box {
+        /* 4つ横並びで等分するイメージ */
+        flex: 1;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+}
