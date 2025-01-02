@@ -1,0 +1,279 @@
+Example 1: Basic Array Initialization and Access
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Declare an array of integers with 5 elements
+    int numbers[5] = {1, 2, 3, 4, 5};
+
+    // Access and print each element of the array
+    for (int i = 0; i < 5; i++) {
+        cout << "Element at index " << i << " is " << numbers[i] << endl;
+    }
+
+    return 0;
+}
+
+============================================================================================
+Example 2: Array Input and Sum Calculation
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Declare an array to hold 5 integers
+    int numbers[5];
+    int sum = 0;
+
+    // Prompt the user to enter 5 integers
+    cout << "Enter 5 integers:" << endl;
+    for (int i = 0; i < 5; i++) {
+        cin >> numbers[i]; // Store each input in the array
+    }
+
+    // Calculate the sum of the array elements
+    for (int i = 0; i < 5; i++) {
+        sum += numbers[i];
+    }
+
+    // Print the sum
+    cout << "The sum of the entered numbers is: " << sum << endl;
+
+    return 0;
+}
+
+============================================================================================
+
+Example3: Creating a Singly Linked List
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+int main() {
+    Node* head = new Node();
+    Node* second = new Node();
+    Node* third = new Node();
+    
+    head->data = 1; // Assign data to first node
+    head->next = second; // Link first node to second node
+    
+    second->data = 2; // Assign data to second node
+    second->next = third; // Link second node to third node
+    
+    third->data = 3; // Assign data to third node
+    third->next = nullptr; // End of the list
+    
+    return 0;
+}
+
+
+============================================================================================
+
+Example 4: Singly Linked List Insertion at the Beginning
+
+#include <iostream>
+using namespace std;
+
+// Define a Node structure
+struct Node {
+    int data;
+    Node* next;
+};
+
+// Function to insert a new node at the beginning of the list
+void insertAtBeginning(Node*& head, int newData) {
+    Node* newNode = new Node();
+    newNode->data = newData;
+    newNode->next = head;
+    head = newNode;
+}
+
+// Function to print the linked list
+void printList(Node* node) {
+    while (node != nullptr) {
+        cout << "Node data: " << node->data << endl;
+        node = node->next;
+    }
+}
+
+int main() {
+    // Initialize the head of the list
+    Node* head = nullptr;
+
+    // Insert nodes at the beginning
+    insertAtBeginning(head, 3);
+    insertAtBeginning(head, 2);
+    insertAtBeginning(head, 1);
+
+    // Print the linked list
+    printList(head);
+
+    // Clean up memory
+    while (head != nullptr) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    return 0;
+}
+
+
+
+==================================================================================
+Ex5: Traversing a Linked List
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+void printList(Node* n) {
+    while (n != nullptr) {
+        cout << n->data << " ";
+        n = n->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    Node* head = new Node();
+    Node* second = new Node();
+    Node* third = new Node();
+    
+    head->data = 1;
+    head->next = second;
+    
+    second->data = 2;
+    second->next = third;
+    
+    third->data = 3;
+    third->next = nullptr;
+    
+    printList(head);
+    
+    return 0;
+}
+
+
+==================================================================
+Ex6 stack
+
+
+#include <stack>
+#include <iostream>
+
+int main() {
+    std::stack<int> s;
+    s.push(1);    // Stack: [1]
+    s.push(2);    // Stack: [1, 2]
+    s.push(3);    // Stack: [1, 2, 3]
+
+    std::cout << "Top element: " << s.top() << std::endl; // Output: 3
+
+    s.pop();      // Stack: [1, 2]
+    std::cout << "Top element after pop: " << s.top() << std::endl; // Output: 2
+
+    return 0;
+}
+
+
+========================================================================
+Ex7:
+
+#include <queue>
+#include <iostream>
+using namespace std;
+
+int main() {
+    queue<int> q;
+    q.push(1);    // Enqueue: [1]
+    q.push(2);    // Enqueue: [1, 2]
+    q.push(3);    // Enqueue: [1, 2, 3]
+
+    cout << "Front element: " << q.front() << endl; // Output: 1
+
+    q.pop();      // Dequeue: [2, 3]
+    cout << "Front element after dequeue: " << q.front() << endl; // Output: 2
+
+    return 0;
+}
+
+
+===========================================================================================
+Ex8:
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    // Declare a stack of integers
+    stack<int> stack;
+
+    // Push elements onto the stack
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+
+    // Pop an element from the stack
+    cout << stack.top() << " is at the top of the stack" << endl;
+    stack.pop();
+    
+    // Print the top element
+    cout << "Now, " << stack.top() << " is at the top of the stack" << endl;
+
+    // Check if the stack is empty
+    if (stack.empty()) {
+        cout << "Stack is empty" << endl;
+    } else {
+        cout << "Stack is not empty" << endl;
+    }
+
+    return 0;
+}
+
+=====================================================================================================
+Ex 9: Stack Using STL (Standard Template Library)
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    // Declare a stack of integers
+    stack<int> stack;
+
+    // Push elements onto the stack
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+
+    // Pop an element from the stack
+    cout << stack.top() << " is at the top of the stack" << endl;
+    stack.pop();
+    
+    // Print the top element
+    cout << "Now, " << stack.top() << " is at the top of the stack" << endl;
+
+    // Check if the stack is empty
+    if (stack.empty()) {
+        cout << "Stack is empty" << endl;
+    } else {
+        cout << "Stack is not empty" << endl;
+    }
+
+    return 0;
+}
+
+
+
