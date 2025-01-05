@@ -1,52 +1,64 @@
 #include <iostream>
-#include <vector>
+#include <string>
+//#include <cmath>
 
 using namespace std;
 
-// Function to calculate (a^b) mod c using recursive doubling
-long long power_mod(long long a, long long b, long long c) {
-    // Handle base case
-    if (b == 0) return 1;
-    
-    // Initialize result
-    long long result = 1;
-    
-    // First compute a mod c to handle large values of a
-    a = a % c;
-    
-    // Process while b > 0
-    while (b > 0) {
-        // If current bit is 1, multiply result with current power of a
-        if (b & 1) {
-            result = (result * a) % c;
-        }
-        
-        // Square a for next bit
-        a = (a * a) % c;
-        
-        // Move to next bit
-        b >>= 1;
-    }
-    
-    return result;
+long long power (long long num)
+{
+    return num * num;
 }
 
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    
-    while (true) {
-        long long a, b, c;
-        cin >> a;
-        
-        // Check for end of input
-        if (a == -1) break;
-        
-        cin >> b >> c;
-        
-        // Calculate and output result
-        cout << power_mod(a, b, c) << endl;
+
+long long recursion(long long c, long long mod, long long i)
+{
+    if (i == 0){
+        return mod;
     }
-    
-    return 0;
+
+    return power(recursion(c, mod, i - 1)) % c;
+}
+
+int main()
+{
+    long long a;
+    long long b;
+    long long c;
+
+    while (cin >> a && a != -1){
+        cin >> b >> c;
+
+        string binaly = "";
+
+        while(b != 0){
+            if (b % 2 == 0){
+                binaly.push_back('0');
+            }
+            else{
+                binaly.push_back('1');
+            }
+            b /= 2;
+
+        }
+
+        long long mod = a % c;
+        long long len = binaly.length();
+        long long multi = 1;
+
+        int temp;
+        for (long long i = 0; i < len; i++){
+            if (binaly[i] != '0'){
+                temp = recursion(c, mod, i);
+                multi *= temp;
+                multi %= c;
+            }
+        }
+
+        //cout << multi % c << endl;
+
+        cout << multi << endl;
+
+    }
+
+
 }
