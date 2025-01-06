@@ -28,26 +28,26 @@ int main()
     while (cin >> a && a != -1){
         cin >> b >> c;
 
-        string binaly = "";
+        string binary = "";
 
         while(b != 0){
             if (b % 2 == 0){
-                binaly.push_back('0');
+                binary.push_back('0');
             }
             else{
-                binaly.push_back('1');
+                binary.push_back('1');
             }
             b /= 2;
 
         }
 
         long long mod = a % c;
-        long long len = binaly.length();
+        long long len = binary.length();
         long long multi = 1;
 
         int temp;
         for (long long i = 0; i < len; i++){
-            if (binaly[i] != '0'){
+            if (binary[i] != '0'){
                 temp = recursion(c, mod, i);
                 multi *= temp;
                 multi %= c;
@@ -58,7 +58,7 @@ int main()
 
         cout << multi << endl;
 
-    }
+    }　
 
 
 }
