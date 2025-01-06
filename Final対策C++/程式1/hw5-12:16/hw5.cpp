@@ -58,7 +58,5 @@ int main()
 
         cout << multi << endl;
 
-    }　
-
-
+    }
 }
